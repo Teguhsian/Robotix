@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Robotix</title>
+        <link rel="icon" type="image/png" href="img/Logo.png" />
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+    </head>
+
+    <body>
+        <div class="wrap">
+            <header>
+                <div class="brand">
+                    <div class="logo">
+                        <img
+                            src="img/Acronim Robotix dark.jpeg"
+                            alt="Robotix Logo"
+                        />
+                    </div>
+                    <div>
+                        <h1>Robotix</h1>
+                        <div style="font-size: 12px; color: var(--muted)">
+                            To the Future!
+                        </div>
+                    </div>
+                </div>
+
+                <nav>
+                    <a class="btn" href="#about">Tentang</a>
+                    <a class="btn" href="#projects">Project</a>
+                    <a class="btn" href="#team">Struktur Organisasi</a>
+                    <a class="btn" href="#contact">Kontak</a>
+                </nav>
+
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            </header>
+
+            <main>
+                <section class="hero">
+                    <div class="intro">
+                        <h2>Selamat datang di <strong>Robotix</strong></h2>
+                        <p>
+                            Kami adalah komunitas yang bergerak di bidang
+                            robotik dan teknologi. Bergabunglah dengan kami
+                            untuk berkarya, belajar, dan berbagi.
+                        </p>
+
+                        <div class="cta">
+                            <a class="primary" href="#contact"
+                                >Gabung Sekarang</a
+                            >
+                            <a class="ghost" href="#projects">Lihat Kegiatan</a>
+                        </div>
+
+                        <div class="stats">
+                            <div class="stat">
+                                <h3>8</h3>
+                                <p>Anggota</p>
+                            </div>
+                            <div class="stat">
+                                <h3>1</h3>
+                                <p>Kegiatan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-img">
+                        <img src="img/Logo.png" alt="Robotix Logo" />
+                    </div>
+                </section>
+
+                <section id="about">
+                    <div class="section-head">
+                        <h3>Tentang Kami</h3>
+                    </div>
+                    <p>
+                        Kami berdiri pada tahun 2025 dan berfokus pada
+                        pengembangan teknologi berbasis IoT dan robotika.
+                    </p>
+
+                    <div class="grid">
+                        <div class="card">
+                            <h4>Program Pembuatan Project</h4>
+                            <p>
+                                Membuat project bersama dan belajar tentang
+                                teknologi robotik dan pemrograman.
+                            </p>
+                        </div>
+                        <div class="card">
+                            <h4>Program Lomba</h4>
+                            <p>
+                                Mengikuti berbagai lomba teknologi yang diadakan
+                                oleh kampus atau lembaga pendidikan.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contact">
+                    <div class="section-head">
+                        <h3>Kontak Kami</h3>
+                    </div>
+                    <div class="contact-box">
+                        <div>
+                            <h4>Hubungi Kami</h4>
+                            <p>
+                                <i class="fa-solid fa-envelope"></i>
+                                info@robotix.com
+                            </p>
+                            <p>
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <a href="https://wa.me/6281295252578"
+                                    >+62 812 9525 2578</a
+                                >
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Media Sosial</h4>
+                            <p>
+                                <a href="https://facebook.com/robotix"
+                                    ><i class="fa-brands fa-facebook"></i>
+                                    Facebook</a
+                                >
+                            </p>
+                            <p>
+                                <a href="https://instagram.com/robotix"
+                                    ><i class="fa-brands fa-instagram"></i>
+                                    Instagram</a
+                                >
+                            </p>
+                            <p>
+                                <a href="https://tiktok.com/robotix"
+                                    ><i class="fa-brands fa-tiktok"></i>
+                                    TikTok</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <div>© <span id="year"></span> Robotix</div>
+            </footer>
+        </div>
+
+        <script>
+            // Toggle Menu
+            const menuToggle = document.querySelector(".menu-toggle");
+            const nav = document.querySelector("nav");
+            menuToggle.addEventListener("click", () => {
+                nav.classList.toggle("active");
+            });
+
+            // Set year
+            document.getElementById("year").textContent =
+                new Date().getFullYear();
+
+            // Animasi muncul
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting) {
+                            e.target.style.transform = "none";
+                            e.target.style.opacity = "1";
+                        }
+                    });
+                },
+                { threshold: 0.12 },
+            );
+            document
+                .querySelectorAll(".card")
+                .forEach((el) => observer.observe(el));
+        </script>
+    </body>
+</html>
