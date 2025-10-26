@@ -133,78 +133,139 @@ a.btn:hover {
     }
 }
 
-/* ===== PORTFOLIO SECTION ===== */
-.portfolio {
-    margin-top: 80px;
+.struktur-anggota {
+    padding: 50px 0;
+    text-align: center;
+    color: white;
+}
+
+.struktur-anggota h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: var(--accent);
+}
+
+/* Kontainer anggota (bisa di-scroll manual) */
+.anggota-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 20px;
+    scroll-snap-type: x mandatory; /* efek snap rapi */
+}
+
+.anggota-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 20px;
+    scroll-snap-type: x mandatory;
+}
+
+.anggota-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Kotak anggota */
+.anggota {
+    width: 220px; /* ukuran lebar tetap */
+    height: 320px; /* tinggi tetap */
+    background: var(--card);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* biar isi tetap di atas */
+    text-align: center;
+    scroll-snap-align: start;
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.anggota:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* Foto anggota */
+.anggota img {
+    width: 100%;
+    height: 180px; /* tinggi gambar tetap */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Nama dan jabatan */
+.anggota h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.anggota p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0;
+    flex-grow: 1; /* biar teks rata dan tidak ubah tinggi */
+    display: flex;
+    align-items: center; /* teks di tengah vertikal */
+    justify-content: center; /* teks di tengah horizontal */
     text-align: center;
 }
 
-.portfolio h2 {
-    font-size: 28px;
+.pemisah {
+    margin: 50px auto;
+    border: 0;
+    height: 2px;
+    width: 80%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--accent),
+        transparent
+    );
+    border-radius: 2px;
+}
+
+.struktur-gambar {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.struktur-gambar h3 {
     color: var(--accent);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
-.portfolio .subtitle {
+.struktur-gambar img {
+    max-width: 90%;
+    height: 50;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.struktur-gambar img:hover {
+    transform: scale(1.03);
+}
+
+.tanggal-sekarang {
+    text-align: center;
+    margin-top: 25px;
     color: var(--muted);
-    margin-bottom: 40px;
+    font-size: 0.95rem;
+    font-style: italic;
+    opacity: 0.8;
 }
 
-/* Grid layout untuk project */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-}
-
-/* Kartu project */
-.card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 18px;
-    text-align: left;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-}
-
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: var(--radius);
-    margin-bottom: 12px;
-}
-
-.card h3 {
-    color: #fff;
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-.card p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 16px;
-    line-height: 1.5;
-}
-
-/* Responsive tweak */
-@media (max-width: 768px) {
-    .project-grid {
-        gap: 18px;
-    }
-    .card img {
-        height: 160px;
-    }
-}
-
+/* Footer */
 footer {
     text-align: center;
     color: var(--muted);

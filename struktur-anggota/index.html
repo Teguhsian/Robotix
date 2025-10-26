@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Robotix</title>
+        <link rel="icon" type="image/png" href="../img/Logo.png" />
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+    </head>
+
+    <body>
+        <div class="wrap">
+            <header>
+                <div class="brand">
+                    <div class="logo">
+                        <img
+                            src="../img/Acronim Robotix dark.jpeg"
+                            alt="Robotix Logo"
+                        />
+                    </div>
+                    <div>
+                        <h1>Robotix</h1>
+                        <div style="font-size: 12px; color: var(--muted)">
+                            To the Future!
+                        </div>
+                    </div>
+                </div>
+
+                <nav>
+                    <a class="btn" href="../">Tentang</a>
+                    <a class="btn" href="../project/">Project</a>
+                    <a class="btn" href="#struktur-anggota/"
+                        >Struktur Anggota</a
+                    >
+                    <a class="btn" href="../#contact">Kontak</a>
+                </nav>
+
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            </header>
+
+            <main>
+                <section class="struktur-anggota">
+                    <h2>Anggota Robotix</h2>
+                    <div class="anggota-container">
+                        <div class="anggota">
+                            <img src="../img/Logo.png" alt="Foto Anggota 1" />
+                            <h3>Teguh Permana</h3>
+                            <p>Ketua Robotix & Ketua Programmer</p>
+                        </div>
+
+                        <div class="anggota">
+                            <img src="../img/Logo.png" alt="Foto Anggota 2" />
+                            <h3>Zefanya</h3>
+                            <p>Wakil Ketua Robotix & Programmer</p>
+                        </div>
+
+                        <div class="anggota">
+                            <img src="../img/Logo.png" alt="Foto Anggota 3" />
+                            <h3>Fauzan</h3>
+                            <p>Sekretaris & Ketua Electrical Engineer</p>
+                        </div>
+
+                        <div class="anggota">
+                            <img src="../img/Logo.png" alt="Foto Anggota 4" />
+                            <h3>Raffa</h3>
+                            <p>Bendahara & Humas</p>
+                        </div>
+
+                        <div class="anggota">
+                            <img src="../img/Logo.png" alt="Foto Anggota 5" />
+                            <h3>Yuuga</h3>
+                            <p>Programmer</p>
+                        </div>
+
+                        <div class="anggota">
+                            <img src="../img/Logo.png" alt="Foto Anggota 5" />
+                            <h3>Vero</h3>
+                            <p>Electrical Engineer</p>
+                        </div>
+
+                        <div class="anggota">
+                            <img src="../img/Logo.png" alt="Foto Anggota 5" />
+                            <h3>Naupal</h3>
+                            <p>Designer</p>
+                        </div>
+
+                        <div class="anggota">
+                            <img src="../img/Logo.png" alt="Foto Anggota 5" />
+                            <h3>Abian</h3>
+                            <p>Designer</p>
+                        </div>
+                    </div>
+
+                      <hr class="pemisah" />
+
+                    <div class="struktur-gambar">
+                        <h3>Struktur Anggota Robotix</h1>
+                        <img src="../img/Struktur Anggota.png" alt="Foto Struktur Anggota Robotix">
+                    </div>
+
+                    <div class="tanggal-sekarang">
+                            <p id="tanggal"></p>
+                        </div>
+                </section>
+            </main>
+
+            <footer>
+                <div>© <span id="year"></span> Robotix</div>
+            </footer>
+        </div>
+
+        <script>
+            document.getElementById("year").textContent =
+                new Date().getFullYear();
+
+            const menuToggle = document.querySelector(".menu-toggle");
+            const nav = document.querySelector("nav");
+            menuToggle.addEventListener("click", () => {
+                nav.classList.toggle("active");
+            });
+
+            // --- Script Tanggal Sekarang ---
+            const tanggalSekarang = new Date();
+            const options = { day: "numeric", month: "long", year: "numeric" };
+            const tanggalFormatted = tanggalSekarang.toLocaleDateString("id-ID", options);
+            document.getElementById("tanggal").textContent = `Tanggal: ${tanggalFormatted}`;
+
+            // Auto scroll anggota
+            // --- AUTO SCROLL & MANUAL SCROLL ---
+            const container = document.querySelector(".anggota-container");
+            let autoScroll = true;
+            let scrollAmount = 0;
+
+            // Fungsi untuk auto-scroll
+            function autoScrollFunc() {
+                if (!autoScroll) return;
+                container.scrollLeft += 1;
+                if (
+                    container.scrollLeft >=
+                    container.scrollWidth - container.clientWidth
+                ) {
+                    container.scrollLeft = 0;
+                }
+            }
+
+            // Jalankan auto-scroll setiap 30ms
+            let scrollInterval = setInterval(autoScrollFunc, 30);
+
+            // Jika user scroll manual, hentikan auto-scroll sementara
+            container.addEventListener("scroll", () => {
+                autoScroll = false;
+                clearInterval(scrollInterval);
+                // Mulai lagi setelah 3 detik tidak digerakkan
+                clearTimeout(container.restartTimeout);
+                container.restartTimeout = setTimeout(() => {
+                    autoScroll = true;
+                    scrollInterval = setInterval(autoScrollFunc, 30);
+                }, 3000);
+            });
+        </script>
+    </body>
+</html>
