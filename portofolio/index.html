@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Robotix</title>
+        <link rel="icon" type="image/png" href="img/Logo.png" />
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+    </head>
+
+    <body>
+        <div class="wrap">
+            <header>
+                <div class="brand">
+                    <div class="logo">
+                        <img
+                            src="../img/Acronim Robotix dark.jpeg"
+                            alt="Robotix Logo"
+                        />
+                    </div>
+                    <div>
+                        <h1>Robotix</h1>
+                        <div style="font-size: 12px; color: var(--muted)">
+                            To the Future!
+                        </div>
+                    </div>
+                </div>
+
+                <nav>
+                    <a class="btn" href="../">Tentang</a>
+                    <a class="btn" href="#projects">Project</a>
+                    <a class="btn" href="#team">Struktur Organisasi</a>
+                    <a class="btn" href="../#contact">Kontak</a>
+                </nav>
+
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            </header>
+        </div>
+
+        <main>
+            <!-- Section Portofolio Project -->
+            <section id="projects" class="portfolio">
+                <h2>Portofolio Project</h2>
+                <p class="subtitle">
+                    Beberapa karya dan inovasi dari komunitas
+                    <strong>Robotix</strong>.
+                </p>
+
+                <div class="project-grid">
+                    <div class="card">
+                        <img
+                            src="../img/Acronim Robotix light.jpeg"
+                            alt="Robot Arm Project"
+                        />
+                        <h3>Robot Arm Control</h3>
+                        <p>
+                            Lengan robot yang dikendalikan menggunakan sensor
+                            gerak dan microcontroller ESP32.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="../img/Acronim Robotix light.jpeg"
+                            alt="Line Follower Robot"
+                        />
+                        <h3>Line Follower</h3>
+                        <p>
+                            Robot dengan algoritma PID untuk mengikuti garis
+                            secara presisi di lintasan kompleks.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="../img/Acronim Robotix light.jpeg"
+                            alt="IoT Monitoring System"
+                        />
+                        <h3>IoT Monitoring System</h3>
+                        <p>
+                            Sistem pemantauan suhu dan kelembapan berbasis
+                            Internet of Things untuk laboratorium sekolah.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <img
+                            src="../img/Acronim Robotix light.jpeg"
+                            alt="RC Trashbin"
+                        />
+                        <h3>RC Trashbin</h3>
+                        <p>
+                            Robot Tong sampah dengan sistem control gerak dan
+                            dapat mengenali sampah berdasarkan jenisnya.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script>
+            const menuToggle = document.querySelector(".menu-toggle");
+            const nav = document.querySelector("nav");
+            menuToggle.addEventListener("click", () => {
+                nav.classList.toggle("active");
+            });
+        </script>
+    </body>
+</html>
